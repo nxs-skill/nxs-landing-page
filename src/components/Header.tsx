@@ -1,0 +1,104 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { List, X } from "@phosphor-icons/react"
+import { Button } from "../ui/button"
+
+export function Header() {
+  console.log("Header component renderizado")
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+
+      const sections = document.querySelectorAll("section[id]")
+      let currentSection = "home"
+
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top
+        const sectionHeight = section.clientHeight
+        const halfViewport = window.innerHeight / 2
+
+        if (sectionTop <= halfViewport && sectionTop + sectionHeight > halfViewport) {
+          currentSection = section.getAttribute("id") || "home"
+        }
+      })
+
+      setActiveSection(currentSection)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const navLinks = [
+    { href: "#home", text: "Home" },
+    { href: "#problematic", text: "Problemática" },
+    { href: "#solution", text: "Solução" },
+    { href: "#features", text: "Funcionalidades" },
+    { href: "#about", text: "Sobre" },
+    { href: "#contact", text: "Contato" },
+  ]
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? "bg-[#030812]/90 backdrop-blur-md shadow-md" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="flex items-center">
+          <a href="#" className="text-2xl font-bold text-[#31D9FE]">
+            Nexus-Skill
+          </a>
+        </div>
+
+        <nav className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`nav-link text-white hover:text-[#31D9FE] transition-colors ${
+                activeSection === link.href.substring(1) ? "active" : ""
+              }`}
+            >
+              {link.text}
+            </a>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Download App</Button>
+        </div>
+
+        <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X size={24} /> : <List size={24} />}
+        </button>
+      </div>
+
+      {/* menu p celular */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-[#030812]/95 backdrop-blur-md shadow-lg">
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-white hover:text-[#31D9FE] transition-colors py-2 ${
+                  activeSection === link.href.substring(1) ? "text-[#31D9FE]" : ""
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.text}
+              </a>
+            ))}
+            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full">Baixe agora</Button>
+          </div>
+        </div>
+      )}
+    </header>
+  )
+}
