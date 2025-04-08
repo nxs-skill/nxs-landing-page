@@ -161,8 +161,8 @@ export function About() {
 
       <div className="container mx-auto px-4 z-10 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-            <span className="text-[#31D9FE]">Conheça</span> os cérebros.
+          <h2 className="text-5xl md:text-4xl font-bold mb-4 text-white">
+            <span className="text-[#31D9FE] text-5xl">Conheça</span> <span className="text-5xl">os cérebros</span>.
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Nada acontece sozinho. Esses são os nomes por trás das ideias, da execução e da entrega. Nosso time, nosso

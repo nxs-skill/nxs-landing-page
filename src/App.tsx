@@ -2,7 +2,7 @@ import { Header } from "./components/Header"
 import { Home } from "./components/Home"
 import { Problematic } from "./components/Problematic"
 import { AppPart1 } from "./components/AppPart1"
-import { AppPart2 } from "./components/AppPart2"
+import { Features } from "./components/Features"
 import { About } from "./components/About"
 import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
@@ -16,7 +16,7 @@ function App() {
         <Home />
         <Problematic />
         <AppPart1 />
-        <AppPart2 />
+        <Features />
         <About />
         <Contact />
       </main>
