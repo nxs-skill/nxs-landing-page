@@ -1,39 +1,47 @@
 "use client"
 
-import type React from "react"
+import { z } from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 
-import { useState } from "react"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 import { EnvelopeSimple, Phone, TiktokLogo, LinkedinLogo, InstagramLogo } from "@phosphor-icons/react"
 
+const formSchema = z.object({
+  name: z.string().min(1, "Nome é obrigatório"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().optional(),
+  subject: z.string().min(1, "Assunto é obrigatório"),
+  message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+})
+
+type FormData = z.infer<typeof formSchema>
+
 export function Contact() {
   console.log("Contact component renderizado")
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    alert("Formulário enviado com sucesso!")
-    setFormData({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
       name: "",
       email: "",
       phone: "",
       subject: "",
       message: "",
-    })
+    },
+  })
+
+  const onSubmit = (data: FormData) => {
+    console.log("Form submitted:", data)
+    alert("Formulário enviado com sucesso!")
+    reset()
   }
 
   return (
@@ -47,10 +55,10 @@ export function Contact() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             <EnvelopeSimple className="inline-block mr-2 text-[#31D9FE]" size={32} />
-            <span className="text-[#31D9FE]">Fale</span> com a gente.
+            <span className="text-[#31D9FE]">Fale</span> com a gente<span className="text-[#31D9FE]">.</span>
           </h2>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Tens alguma duvida? algum problema? algum feedback? alguma ideia de parceria? entre em contato conosco
           </p>
         </div>
 
@@ -58,7 +66,7 @@ export function Contact() {
           <div className="glassmorphism rounded-lg shadow-lg p-8 border border-[#31D9FE]/20">
             <h3 className="text-2xl font-bold mb-6 text-white">Envie uma mensagem</h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
@@ -66,13 +74,11 @@ export function Contact() {
                   </label>
                   <Input
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    {...register("name")}
                     placeholder="Seu nome"
-                    required
-                    className="w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white"
+                    className={`w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white ${errors.name ? "border-red-500" : ""}`}
                   />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
 
                 <div>
@@ -81,14 +87,12 @@ export function Contact() {
                   </label>
                   <Input
                     id="email"
-                    name="email"
                     type="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    {...register("email")}
                     placeholder="seu.email@exemplo.com"
-                    required
-                    className="w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white"
+                    className={`w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white ${errors.email ? "border-red-500" : ""}`}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
                 </div>
               </div>
 
@@ -99,9 +103,7 @@ export function Contact() {
                   </label>
                   <Input
                     id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
+                    {...register("phone")}
                     placeholder="(00) 00000-0000"
                     className="w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white"
                   />
@@ -113,13 +115,11 @@ export function Contact() {
                   </label>
                   <Input
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    {...register("subject")}
                     placeholder="Assunto da mensagem"
-                    required
-                    className="w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white"
+                    className={`w-full bg-[#030812]/60 border-[#31D9FE]/30 text-white ${errors.subject ? "border-red-500" : ""}`}
                   />
+                  {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject.message}</p>}
                 </div>
               </div>
 
@@ -129,13 +129,11 @@ export function Contact() {
                 </label>
                 <Textarea
                   id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  {...register("message")}
                   placeholder="Digite sua mensagem aqui..."
-                  required
-                  className="w-full min-h-[150px] bg-[#030812]/60 border-[#31D9FE]/30 text-white"
+                  className={`w-full min-h-[150px] bg-[#030812]/60 border-[#31D9FE]/30 text-white ${errors.message ? "border-red-500" : ""}`}
                 />
+                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
               </div>
 
               <Button type="submit" className="w-full bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">
@@ -189,13 +187,15 @@ export function Contact() {
                   <TiktokLogo size={24} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/equipe-nexus/"
+                  target="_blank"
                   className="bg-[#31D9FE]/20 p-3 rounded-full text-[#31D9FE] hover:bg-[#31D9FE]/30 transition-all duration-300 icon-hover"
                 >
                   <LinkedinLogo size={24} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/equipe_nxs/"
+                  target="_blank"
                   className="bg-[#31D9FE]/20 p-3 rounded-full text-[#31D9FE] hover:bg-[#31D9FE]/30 transition-all duration-300 icon-hover"
                 >
                   <InstagramLogo size={24} />
