@@ -64,7 +64,7 @@ export function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="glassmorphism rounded-lg shadow-lg p-8 border border-[#31D9FE]/20">
-            <h3 className="text-2xl font-bold mb-6 text-white">Envie uma mensagem</h3>
+            <h3 className="text-2xl font-bold mb-6 text-white">Envie-nos uma mensagem</h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -146,30 +146,34 @@ export function Contact() {
             <div className="glassmorphism rounded-lg shadow-lg p-8 mb-8 border border-[#31D9FE]/20">
               <h3 className="text-2xl font-bold mb-6 text-white">Informações de contato</h3>
 
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-[#31D9FE]/20 p-3 rounded-full mr-4">
-                    <EnvelopeSimple size={24} className="text-[#31D9FE]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Email</h4>
-                    <a href="mailto:contato@nexusskill.com" className="text-[#31D9FE] hover:underline">
-                      contato@nexusskill.com
-                    </a>
-                  </div>
-                </div>
+              <p className="text-gray-300 mb-8">
+              Fale diretamente com a nossa equipe. Estamos prontos pra te ouvir e ajudar no que for preciso.
+              </p>
 
-                <div className="flex items-start">
-                  <div className="bg-[#31D9FE]/20 p-3 rounded-full mr-4">
-                    <Phone size={24} className="text-[#31D9FE]" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Telefone</h4>
-                    <a href="tel:+5592986206811" className="text-[#31D9FE] hover:underline">
-                      (92) 98620-6811
-                    </a>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center">
+                <div className="bg-[#31D9FE]/20 p-3 rounded-full mr-4">
+                <EnvelopeSimple size={24} className="text-[#31D9FE]" />
                 </div>
+                <div>
+                <h4 className="font-semibold text-white mb-1">Email</h4>
+                <a href="mailto:contato@nexusskill.com" className="text-[#31D9FE] hover:underline">
+                  contato@nexusskill.com
+                </a>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div className="bg-[#31D9FE]/20 p-3 rounded-full mr-4">
+                <Phone size={24} className="text-[#31D9FE]" />
+                </div>
+                <div>
+                <h4 className="font-semibold text-white mb-1">Telefone</h4>
+                <a href="tel:+5592986206811" className="text-[#31D9FE] hover:underline">
+                  (92) 98620-6811
+                </a>
+                </div>
+              </div>
               </div>
             </div>
 
