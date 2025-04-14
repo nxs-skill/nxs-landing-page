@@ -52,7 +52,7 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold text-[#31D9FE]">
-            Nexus-Skill
+            NXS
           </a>
         </div>
 
@@ -61,7 +61,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`nav-link text-white hover:text-[#31D9FE] transition-colors ${
+              className={`nav-link text-white font-medium hover:text-[#31D9FE] transition-colors ${
                 activeSection === link.href.substring(1) ? "active" : ""
               }`}
             >
@@ -71,7 +71,7 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Download App</Button>
+          <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Baixe agora</Button>
         </div>
 
         <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -87,7 +87,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-white hover:text-[#31D9FE] transition-colors py-2 ${
+                className={`text-white font-medium hover:text-[#31D9FE] transition-colors py-2 ${
                   activeSection === link.href.substring(1) ? "text-[#31D9FE]" : ""
                 }`}
                 onClick={() => setIsMenuOpen(false)}
