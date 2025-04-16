@@ -48,14 +48,14 @@ export function Features() {
         className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
         style={{
           backgroundImage: "url('/src/assets/background-sections/background-app-part-2.svg')",
-          backgroundColor: "#030812",//#030812
+          backgroundColor: "#030812",
         }}
       ></div>
       <div className="container mx-auto px-4 z-10 relative">
         <div className="text-center mb-16 justify-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white flex justify-center items-baseline">
             <img className="w-6" src={rocketIcon} alt="rocket-icon" />
-            <span className="ml-1 text-5xl font-bold">Comece a evoluir</span>
+            <span className="ml-1 text-4xl font-bold sm:text-5xl">Comece a evoluir</span>
             <span className="text-[#35D9FD]">.</span>
           </h2>
           <div className="w-full flex text-center justify-center">
@@ -63,11 +63,11 @@ export function Features() {
           </div>
         </div>
         <div className="flex w-full justify-center">
-          <div className="grid grid-cols-3 grid-rows-2 gap-12 max-w-7xl mb-12">
+          <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 md:grid-cols-2 md:grid-rows-3 gap-12 max-w-7xl mb-12">
             {ContentsCard.map((content) => (
               <div className="relative w-full h-full group">
                 <div className="absolute inset-0 bg-[#24B7D8] rounded-lg z-0 transition-shadow duration-300 group-hover:shadow-[0_2px_5px_rgba(36,183,216,0.4)]" />
-                <div className="relative z-10 px-6 border flex flex-col items-center border-[#444444] bg-[#262626] w-96 h-56 rounded-lg transition-transform duration-300 group-hover:-translate-y-2">
+                <div className="relative z-10 px-6 border flex flex-col items-center border-[#444444] bg-[#262626] w-full h-56 rounded-lg transition-transform duration-300 group-hover:-translate-y-2">
                   <div className="absolute -top-5 flex justify-center items-center bg-[#333333] w-20 h-20 rounded-lg">
                     <img className="w-1/2" src={content.icon} alt="Trophy" />
                   </div>
@@ -81,7 +81,7 @@ export function Features() {
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <button className="px-32 py-3 rounded-lg font-bold text-xl inline-flex items-center justify-center transition-all duration-300 text-white shadow-[0_0_20px_rgba(36,183,216,0.6)] hover:shadow-[0_0_25px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8] hover:to-[#44a7c5]">
+          <button className="mx-8 px-24 sm:px-32 md:px-32 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_20px_rgba(36,183,216,0.6)] hover:shadow-[0_0_25px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8] hover:to-[#44a7c5]">
             Baixe agora!
           </button>
         </div>
