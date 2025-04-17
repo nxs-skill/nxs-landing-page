@@ -64,8 +64,8 @@ export function Features() {
         </div>
         <div className="flex w-full justify-center">
           <div className="grid grid-cols-1 grid-rows-3 lg:grid-cols-2 lg:grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 md:grid-cols-2 md:grid-rows-3 gap-12 max-w-7xl mb-12">
-            {ContentsCard.map((content) => (
-              <div className="relative w-full h-full group">
+            {ContentsCard.map((content, index) => (
+              <div key={index} className="relative w-full h-full group">
                 <div className="absolute inset-0 bg-[#24B7D8] rounded-lg z-0 transition-shadow duration-300 group-hover:shadow-[0_2px_5px_rgba(36,183,216,0.4)]" />
                 <div className="relative z-10 px-6 border flex flex-col items-center border-[#444444] bg-[#262626] w-full h-56 rounded-lg transition-transform duration-300 group-hover:-translate-y-2">
                   <div className="absolute -top-5 flex justify-center items-center bg-[#333333] w-20 h-20 rounded-lg">
