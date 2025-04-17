@@ -1,5 +1,5 @@
-export function AppPart1() {
-  console.log("AppPart1 component renderizado")
+export function Solution() {
+  console.log("Solution component renderizado")
   return (
     <section id="solution" className="py-20 min-h-screen flex items-center relative overflow-hidden">
       <div

@@ -1,3 +1,5 @@
+import mockup from "../assets/icons/mockups/nxs-on-device.svg"
+
 export function Home() {
   console.log("Home component renderizado")
   return (
@@ -30,7 +32,7 @@ export function Home() {
 
         <div className="mt-8 md:mt-0">
           <img
-            src="/src/assets/mockups/nxs-on-device.svg"
+            src={mockup}
             alt="NXS App Mockup"
             className="w-full max-w-[300px] md:max-w-[500px] mx-auto block"
           />

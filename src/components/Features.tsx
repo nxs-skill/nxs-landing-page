@@ -5,6 +5,7 @@ import layers from "../assets/icons/layers.svg"
 import chat from "../assets/icons/chat.svg"
 import star from "../assets/icons/star.svg"
 import controll from "../assets/icons/controll.svg"
+import background from "../assets/background-sections/background-part-2-app.svg"
 
 export function Features() {
   console.log("AppPart2 component renderizado")
@@ -47,7 +48,7 @@ export function Features() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
         style={{
-          backgroundImage: "url('/src/assets/background-sections/background-app-part-2.svg')",
+          backgroundImage: `url(${background})`,
           backgroundColor: "#030812",
         }}
       ></div>

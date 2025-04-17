@@ -1,7 +1,7 @@
 import { Header } from "./components/Header"
 import { Home } from "./components/Home"
 import { Problematic } from "./components/Problematic"
-import { AppPart1 } from "./components/AppPart1"
+import { Solution } from "./components/Solution"
 import { Features } from "./components/Features"
 import { About } from "./components/About"
 import { Contact } from "./components/Contact"
@@ -15,7 +15,7 @@ function App() {
       <main>
         <Home />
         <Problematic />
-        <AppPart1 />
+        <Solution />
         <Features />
         <About />
         <Contact />
