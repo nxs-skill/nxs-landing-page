@@ -11,6 +11,7 @@ import AOS from 'aos';
 import { useEffect } from "react";
 import CoursesAndModules from "./components/CoursesAndModules"
 import { Us } from "./components/Us"
+import { UserVision } from "./components/UserVision"
 
 function App() {
   useEffect(() => {
@@ -30,10 +31,10 @@ function App() {
         <Solution />
         <Features />
         <CoursesAndModules />
+        <UserVision />
         <Us />
         <About />
         <Contact />
-
       </main>
       <Footer />
     </div>

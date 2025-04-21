@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { ArrowLeft, ArrowRight, Envelope, LinkedinLogo, InstagramLogo } from "@phosphor-icons/react"
 
 type Member = {
@@ -15,11 +15,11 @@ type Member = {
 }
 
 export function About() {
-  console.log("About component renderizado")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [animating, setAnimating] = useState(false)
-  const [direction, setDirection] = useState("next")
-  const [currentPage, setCurrentPage] = useState(0)
+  const [direction, setDirection] = useState<"next" | "prev">("next")
+  const [isMobile, setIsMobile] = useState(false)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   const members: Member[] = [
     {
@@ -113,19 +113,28 @@ export function About() {
       },
     },
   ]
-  
-  const totalPages = Math.ceil(members.length / 4)
 
+  // verifica o tamanho da tela
   useEffect(() => {
-    setCurrentPage(Math.floor(currentIndex / 4))
-  }, [currentIndex])
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    return () => window.removeEventListener('resize', checkIfMobile)
+  }, [])
+
+  // responsividade aqui
+  const itemsPerPage = isMobile ? 3 : 4
+  const totalPages = Math.ceil(members.length / itemsPerPage)
 
   const nextSlide = () => {
     if (animating) return
     setAnimating(true)
     setDirection("next")
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === members.length - 4 ? 0 : prevIndex + 1))
+      setCurrentIndex(prev => (prev + 1) % (members.length - itemsPerPage + 1))
       setAnimating(false)
     }, 300)
   }
@@ -135,22 +144,32 @@ export function About() {
     setAnimating(true)
     setDirection("prev")
     setTimeout(() => {
-      setCurrentIndex((prevIndex) => (prevIndex === 0 ? members.length - 4 : prevIndex - 1))
+      setCurrentIndex(prev => (prev - 1 + (members.length - itemsPerPage + 1)) % (members.length - itemsPerPage + 1))
       setAnimating(false)
     }, 300)
   }
 
   const goToPage = (pageIndex: number) => {
-    if (animating) return
+    if (animating || !isMobile) return
     setAnimating(true)
-    setDirection(pageIndex > currentPage ? "next" : "prev")
+    setDirection(pageIndex > Math.floor(currentIndex / itemsPerPage) ? "next" : "prev")
     setTimeout(() => {
-      setCurrentIndex(pageIndex * 4)
+      setCurrentIndex(pageIndex * itemsPerPage)
       setAnimating(false)
     }, 300)
   }
 
-  const visibleMembers = members.slice(currentIndex, currentIndex + 4)
+  // carrosel infinito
+  const getVisibleMembers = () => {
+    let endIndex = currentIndex + itemsPerPage
+    if (endIndex > members.length) {
+      const remaining = endIndex - members.length
+      return [...members.slice(currentIndex), ...members.slice(0, remaining)]
+    }
+    return members.slice(currentIndex, endIndex)
+  }
+
+  const visibleMembers = getVisibleMembers()
 
   return (
     <section id="about" className="py-20 min-h-screen flex items-center relative overflow-hidden">
@@ -170,7 +189,7 @@ export function About() {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative" ref={carouselRef}>
           <div className="overflow-hidden">
             <div
               className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out ${
@@ -183,7 +202,7 @@ export function About() {
             >
               {visibleMembers.map((member, index) => (
                 <div
-                  key={index}
+                  key={`${member.nome}-${currentIndex}-${index}`}
                   className="member-card rounded-lg overflow-hidden shadow-lg border border-[#31D9FE]/20 
                   transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[#31D9FE]/20 hover:shadow-lg"
                 >
@@ -203,7 +222,6 @@ export function About() {
                       <h4 className="font-bold text-lg text-white">{member.nome}</h4>
                       <p className="text-[#31D9FE] text-sm">{member.funcao}</p>
                     </div>
-
                     <div className="flex justify-center space-x-3 mt-4">
                       <a
                         href={`mailto:${member.redes.email}`}
@@ -258,16 +276,16 @@ export function About() {
           </button>
         </div>
 
-        <div className="flex justify-center mt-8 gap-2">
+        {/* renderiza os dots apenas no mobile */}
+        <div className={`flex justify-center mt-8 gap-2 ${!isMobile ? 'hidden' : ''}`}>
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentPage ? "bg-[#31D9FE]" : "bg-gray-600 hover:bg-[#24B7D8]"
+                index === Math.floor(currentIndex / itemsPerPage) ? "bg-[#31D9FE]" : "bg-gray-600 hover:bg-[#24B7D8]"
               }`}
               onClick={() => goToPage(index)}
               aria-label={`Página ${index + 1}`}
-              aria-current={index === currentPage ? "page" : undefined}
             />
           ))}
         </div>
