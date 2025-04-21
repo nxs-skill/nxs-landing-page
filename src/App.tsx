@@ -7,6 +7,7 @@ import { About } from "./components/About"
 import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
 import { Us } from "./components/Us"
+import { UserVision } from "./components/UserVision"
 
 function App() {
   console.log("App component renderizado")
@@ -18,6 +19,7 @@ function App() {
         <Problematic />
         <Solution />
         <Features />
+        <UserVision />
         <Us />
         <About />
         <Contact />

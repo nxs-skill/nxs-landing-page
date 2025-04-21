@@ -1,0 +1,226 @@
+"use client"
+
+import { useEffect, useRef, useState } from "react"
+import background from "../assets/background-sections/background-part-2-app.svg"
+import avatarImage from "../assets/diverse-avatars.png"
+
+export function UserVision() {
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const [reversePosition, setReversePosition] = useState(0)
+  const maxScrollWidth = useRef(0)
+
+  const testimonials = [
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+    {
+      name: "Gabriel Figueredo",
+      rating: 5,
+      content:
+        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
+      date: "12 abril, 2024",
+    },
+  ]
+
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials]
+
+  useEffect(() => {
+    const cardWidth = 320
+    const gap = 24
+    const totalWidth = (cardWidth + gap) * testimonials.length
+    maxScrollWidth.current = totalWidth
+
+    setReversePosition(totalWidth)
+
+    const animate = () => {
+      // carrossel de cima
+      setScrollPosition((prev) => {
+        if (prev >= maxScrollWidth.current) {
+          return 0
+        }
+        return prev + 0.5
+      })
+
+      // carrossel de baixo 
+      setReversePosition((prev) => {
+        if (prev <= 0) {
+          return maxScrollWidth.current
+        }
+        return prev - 0.5
+      })
+    }
+
+    const animationId = setInterval(animate, 30)
+
+    return () => {
+      clearInterval(animationId)
+    }
+  }, [testimonials.length])
+
+  const renderStars = (rating: number) => {
+    return Array.from({ length: 5 }).map((_, index) => (
+      <svg key={index} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
+        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+      </svg>
+    ))
+  }
+
+  return (
+    <section id="user-vision" className="py-20 min-h-screen flex flex-col relative overflow-hidden bg-[#0a0a14]">
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: `url(${background})`,
+          backgroundColor: "#030812",
+        }}
+      ></div>
+
+      <div className="text-center mb-16 z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white flex justify-center items-baseline">
+          <span className="text-[#35D9FD]">★</span>
+          <span className="ml-1 text-4xl font-bold sm:text-5xl font-['Poppins',sans-serif]">
+            O app na visão dos usuários
+          </span>
+          <span className="text-[#35D9FD]">.</span>
+        </h2>
+        <div className="w-full flex text-center justify-center">
+          <p className="max-w-3xl text-[#d1d5db] font-['Inter',sans-serif]">
+            Relatos de quem está evoluindo com a gente.
+          </p>
+        </div>
+      </div>
+
+      <div className="w-full overflow-hidden mb-12 relative">
+        {/* gradiente de fade na esquerda */}
+        <div className="absolute left-0 top-0 h-full w-[250px] z-10 bg-gradient-to-r from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+
+        {/* gradiente de fade na direita */}
+        <div className="absolute right-0 top-0 h-full w-[250px] z-10 bg-gradient-to-l from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+
+        <div
+          className="flex gap-6 py-4 w-full pl-6"
+          style={{
+            width: "max-content",
+            transform: `translateX(-${scrollPosition}px)`,
+            transition: "transform 0.1s linear",
+          }}
+        >
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`top-${index}`}
+              className="w-[320px] backdrop-blur-md bg-[#161625]/80 border border-[#2a2a3c] rounded-xl p-6 flex flex-col shadow-lg transition-all duration-300 hover:shadow-[#35D9FD]/10 hover:border-[#35D9FD]/30"
+            >
+              <div className="flex items-center mb-4">
+                <img
+                  src={avatarImage || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
+                />
+                <div>
+                  <h3 className="font-semibold text-white font-['Poppins',sans-serif]">{testimonial.name}</h3>
+                  <div className="flex space-x-1">{renderStars(testimonial.rating)}</div>
+                </div>
+              </div>
+              <p className="text-[#e0e0eb] text-sm flex-grow mb-4 font-['Inter',sans-serif] leading-relaxed">
+                {testimonial.content}
+              </p>
+              <p className="text-[#9999aa] text-xs font-['Inter',sans-serif]">{testimonial.date}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full overflow-hidden mb-12 relative">
+        {/* gradiente de fade na esquerda  */}
+        <div className="absolute left-0 top-0 h-full w-[250px] z-10 bg-gradient-to-r from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+
+        {/* gradiente de fade na direita */}
+        <div className="absolute right-0 top-0 h-full w-[250px] z-10 bg-gradient-to-l from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+
+        <div
+          className="flex gap-6 py-4 w-full pl-6"
+          style={{
+            width: "max-content",
+            transform: `translateX(-${reversePosition}px)`,
+            transition: "transform 0.1s linear",
+          }}
+        >
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={`bottom-${index}`}
+              className="w-[320px] backdrop-blur-md bg-[#161625]/80 border border-[#2a2a3c] rounded-xl p-6 flex flex-col shadow-lg transition-all duration-300 hover:shadow-[#35D9FD]/10 hover:border-[#35D9FD]/30"
+            >
+              <div className="flex items-center mb-4">
+                <img
+                  src={avatarImage || "/placeholder.svg"}
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
+                />
+                <div>
+                  <h3 className="font-semibold text-white font-['Poppins',sans-serif]">{testimonial.name}</h3>
+                  <div className="flex space-x-1">{renderStars(testimonial.rating)}</div>
+                </div>
+              </div>
+              <p className="text-[#e0e0eb] text-sm flex-grow mb-4 font-['Inter',sans-serif] leading-relaxed">
+                {testimonial.content}
+              </p>
+              <p className="text-[#9999aa] text-xs font-['Inter',sans-serif]">{testimonial.date}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-full flex justify-center z-10">
+        <button className="mx-8 px-24 sm:px-32 md:px-32 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_20px_rgba(36,183,216,0.6)] hover:shadow-[0_0_25px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8] hover:to-[#44a7c5]">
+          Baixe agora!
+        </button>
+      </div>
+    </section>
+  )
+}
