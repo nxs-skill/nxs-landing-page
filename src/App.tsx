@@ -6,6 +6,7 @@ import { Features } from "./components/Features"
 import { About } from "./components/About"
 import { Contact } from "./components/Contact"
 import { Footer } from "./components/Footer"
+import { Us } from "./components/Us"
 
 function App() {
   console.log("App component renderizado")
@@ -17,8 +18,10 @@ function App() {
         <Problematic />
         <Solution />
         <Features />
+        <Us />
         <About />
         <Contact />
+
       </main>
       <Footer />
     </div>
