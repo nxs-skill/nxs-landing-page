@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from "react";
 import CoursesAndModules from "./components/CoursesAndModules"
+import { Us } from "./components/Us"
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
         <CoursesAndModules />
         <About />
         <Contact />
+
       </main>
       <Footer />
     </div>
