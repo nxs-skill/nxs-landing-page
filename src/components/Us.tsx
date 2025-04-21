@@ -1,5 +1,5 @@
 import logo from "../assets/logo-nxs.png";
-import img1 from "../assets/us-images/image1.svg"; // Usada para a imagem maior no topo direito
+import img1 from "../assets/us-images/image2.svg"; // Usada para a imagem maior no topo direito
 import img2 from "../assets/us-images/image2.svg"; // Usada para a imagem inferior esquerda
 import img3 from "../assets/us-images/image3.svg"; // Usada para a imagem inferior direita
 
@@ -43,7 +43,7 @@ export function Us() {
                 </p>
               </div>
 
- 
+
               <div className="rounded-lg p-4 flex flex-col justify-center">
                 <p className="text-lg text-white leading-relaxed">
                   Já passamos por inseguranças, dificuldades para nos expressar, colaborar em equipe ou liderar com

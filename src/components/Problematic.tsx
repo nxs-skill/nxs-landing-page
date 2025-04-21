@@ -1,7 +1,5 @@
 import background1 from "../assets/background-sections/background-problematic.svg";
 import background2 from "../assets/background-sections/background-part-2-app.svg";
-import empreendedorismo from "../assets/problematic-images/empreendedorismo.webp";
-import escola from "../assets/problematic-images/escola.webp";
 import trabalho from "../assets/problematic-images/trabalho.jpg";
 import noticias from "../assets/problematic-images/noticias.png";
 import arrow from "../assets/icons/arrow.svg";
@@ -44,7 +42,7 @@ export function Problematic() {
                 </h2>
                 <span className="text-[#2ED9FF]">.</span>
               </div>
-            </h2>y
+            </h2>
             <h3 className="text-lg md:text-4xl md:font-semibold text-white mt-2 w-full flex justify-start">
               Você já passou por isso?
             </h3>

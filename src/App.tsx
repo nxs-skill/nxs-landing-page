@@ -30,6 +30,7 @@ function App() {
         <Solution />
         <Features />
         <CoursesAndModules />
+        <Us />
         <About />
         <Contact />
 

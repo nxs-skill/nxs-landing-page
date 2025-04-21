@@ -25,7 +25,7 @@ export function Solution() {
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white flex justify-center w-full items-baseline">
               <img className="w-6 h-6 mr-1" src={light} alt="light-bulb" />
-              <span className="text-4xl">Solução pode estar na palma da mão</span>
+              <span className="text-5xl">Solução pode estar na palma da mão</span>
               <span className="text-[#31D9FE]">.</span>
             </h2>
           </div>
