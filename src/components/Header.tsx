@@ -45,9 +45,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#030812]/90 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#030812]/90 backdrop-blur-md shadow-md" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
@@ -61,9 +60,8 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`nav-link text-white font-medium hover:text-[#31D9FE] transition-colors ${
-                activeSection === link.href.substring(1) ? "active" : ""
-              }`}
+              className={`nav-link text-white font-medium hover:text-[#31D9FE] transition-colors ${activeSection === link.href.substring(1) ? "active" : ""
+                }`}
             >
               {link.text}
             </a>
@@ -87,9 +85,8 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-white font-medium hover:text-[#31D9FE] transition-colors py-2 ${
-                  activeSection === link.href.substring(1) ? "text-[#31D9FE]" : ""
-                }`}
+                className={`text-white font-medium hover:text-[#31D9FE] transition-colors py-2 ${activeSection === link.href.substring(1) ? "text-[#31D9FE]" : ""
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.text}
