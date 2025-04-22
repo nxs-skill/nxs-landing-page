@@ -38,8 +38,7 @@ export function Header() {
     { href: "#home", text: "Home" },
     { href: "#problematic", text: "Problemática" },
     { href: "#solution", text: "Solução" },
-    { href: "#features", text: "Funcionalidades" },
-    { href: "#courses", text: "Courses" },
+    { href: "#app", text: "App" },
     { href: "#about", text: "Sobre" },
     { href: "#contact", text: "Contato" },
   ]

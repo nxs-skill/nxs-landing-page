@@ -16,8 +16,8 @@ import { UserVision } from "./components/UserVision"
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration: 2000,
+      once: false,
     });
   }, []);
 

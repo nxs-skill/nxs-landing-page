@@ -52,7 +52,7 @@ export function Contact() {
       ></div>
 
       <div className="container mx-auto px-4 z-10 relative">
-        <div className="text-center mb-16">
+        <div data-aos="fade-down" className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             <EnvelopeSimple className="inline-block mr-2 text-[#31D9FE]" size={32} />
             <span className="text-[#31D9FE]">Fale</span> com a gente<span className="text-[#31D9FE]">.</span>
@@ -63,7 +63,7 @@ export function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="glassmorphism rounded-lg shadow-lg p-8 border border-[#31D9FE]/20">
+          <div data-aos="fade-right" className="glassmorphism rounded-lg shadow-lg p-8 border border-[#31D9FE]/20">
             <h3 className="text-2xl font-bold mb-6 text-white">Envie-nos uma mensagem</h3>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -142,7 +142,7 @@ export function Contact() {
             </form>
           </div>
 
-          <div>
+          <div data-aos="fade-left">
             <div className="glassmorphism rounded-lg shadow-lg p-8 mb-8 border border-[#31D9FE]/20">
               <h3 className="text-2xl font-bold mb-6 text-white">Informações de contato</h3>
 

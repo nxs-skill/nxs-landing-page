@@ -80,10 +80,10 @@ const InfiniteCarousel = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="w-full py-8 overflow-hidden">
+    <div data-aos="fade-up" className="w-full py-8 overflow-hidden">
       <div className="relative mb-4">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 h-full w-[20px] md:w-[50px] lg:w-[250px] z-10 bg-gradient-to-r from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 h-full w-[20px] md:w-[50px] lg:w-[250px] z-10 bg-gradient-to-l from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
         <motion.div
           ref={containerRef}
           className="flex gap-6 w-max"
@@ -91,7 +91,7 @@ const InfiniteCarousel = () => {
             x: ['0%', '-66.666%'], 
           }}
           transition={{
-            duration: 90, 
+            duration: 150, 
             ease: 'linear',
             repeat: Infinity,
           }}
@@ -110,8 +110,8 @@ const InfiniteCarousel = () => {
         </motion.div>
       </div>
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 h-full w-[20px] md:w-[50px] lg:w-[250px] z-10 bg-gradient-to-r from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 h-full w-[20px] md:w-[50px] lg:w-[250px] z-10 bg-gradient-to-l from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
         <motion.div
           ref={containerRef}
           className="flex gap-6 w-max"
@@ -119,7 +119,7 @@ const InfiniteCarousel = () => {
             x: ['0%', '-66.666%'],
           }}
           transition={{
-            duration: 90,
+            duration: 150,
             ease: 'linear',
             repeat: Infinity,
           }}
@@ -128,9 +128,8 @@ const InfiniteCarousel = () => {
             <motion.div
               key={`${card.id}-${index}`}
               className="w-[350px] flex-shrink-0"
-              whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
-              <div className="border-[1px] p-6 border-gray-800 bg-gray-900/60 rounded-lg overflow-hidden shadow-sm mx-2">
+              <div className="border-[1px] p-6 border-gray-800 hover:shadow-[#35D9FD]/10 hover:border-[#35D9FD]/30 transition-all duration-300 bg-gray-900/60 rounded-lg overflow-hidden shadow-sm mx-2">
                 <div className="h-48 flex flex-col items-center justify-center rounded-xl relative">
                   <span className='bg-[#31D9FE]/85 px-6 py-1 rounded-lg -mb-3 z-10'>
                     <p className='text-lg font-semibold'>{card.tag}</p>

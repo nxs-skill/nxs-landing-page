@@ -8,11 +8,13 @@ import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
 // Imagens
-import screen1 from "../../assets/screens/Clip path group (1).svg";
-import screen2 from "../../assets/screens/Clip path group (2).svg";
-import screen3 from "../../assets/screens/Clip path group (3).svg";
-import screen4 from "../../assets/screens/Clip path group (4).svg";
-import screen5 from "../../assets/screens/Clip path group (5).svg";
+import screen1 from "../../assets/screens/Clip path group (1).png";
+import screen2 from "../../assets/screens/Clip path group (2).png";
+import screen3 from "../../assets/screens/Clip path group (3).png";
+import screen4 from "../../assets/screens/Clip path group (4).png";
+import screen5 from "../../assets/screens/Clip path group (5).png";
+
+
 
 const MobileScreenCarousel = () => {
   const screens = [
@@ -25,10 +27,10 @@ const MobileScreenCarousel = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const duplicatedScreens = [...screens, ...screens, ...screens];
+  const duplicatedScreens = [...screens, ...screens, ...screens, ...screens];
 
   return (
-    <div className="relative w-full h-full py-12 px-4">
+    <div data-aos="fade-up" className="relative w-full h-full py-12 px-4">
       <Swiper
         effect={'coverflow'}
         grabCursor={true}

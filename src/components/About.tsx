@@ -179,7 +179,7 @@ export function About() {
       ></div>
 
       <div className="container mx-auto px-4 z-10 relative">
-        <div className="text-center mb-16">
+        <div data-aos="fade-down" className="text-center mb-16">
           <h2 className="text-5xl md:text-4xl font-bold mb-4 text-white">
             <span className="text-[#31D9FE] text-5xl">Conheça</span> <span className="text-5xl">os cérebros</span>.
           </h2>
@@ -190,7 +190,7 @@ export function About() {
         </div>
 
         <div className="relative" ref={carouselRef}>
-          <div className="overflow-hidden">
+          <div data-aos="fade-up" className="overflow-hidden">
             <div
               className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out ${
                 animating
@@ -291,7 +291,7 @@ export function About() {
         </div>
 
         <div className="flex justify-center mt-10">
-          <div className="glassmorphism px-4 py-2 rounded-full">
+          <div data-aos="fade-up" className="glassmorphism px-4 py-2 rounded-full">
             <span className="text-[#31D9FE] text-sm font-medium">Quem faz o nxs acontecer.</span>
           </div>
         </div>
