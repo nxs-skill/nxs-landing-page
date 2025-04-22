@@ -213,7 +213,7 @@ export function Contact() {
                 Tudo isso na palma da sua mão. Baixe agora e comece sua jornada de evolução nas soft skills.
               </p>
               <a
-                href="https://play.google.com/store/apps/details?id=com.trainerize.nexus"
+                href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block"

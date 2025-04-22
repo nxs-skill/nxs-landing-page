@@ -83,10 +83,10 @@ export function Features() {
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <button data-aos="fade-up" className="mx-8 px-24 sm:px-32 md:px-28 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" data-aos="fade-up" className="mx-8 px-24 sm:px-32 md:px-28 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
             <img src={play} alt={play} />
             <span className="ml-2">Baixe agora!</span>
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -68,9 +68,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" className="hidden md:block">
           <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Baixe agora</Button>
-        </div>
+        </a>
 
         <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} /> : <List size={24} />}
@@ -92,7 +92,9 @@ export function Header() {
                 {link.text}
               </a>
             ))}
-            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full">Baixe agora</Button>
+            <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full">Baixe agora</Button>
+            </a>
           </div>
         </div>
       )}
