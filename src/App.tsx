@@ -16,7 +16,7 @@ import { Us } from "./components/Us"
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 1000,
       once: false,
     });
   }, []);
