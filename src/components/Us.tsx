@@ -1,10 +1,10 @@
 import logo from "../assets/logo-nxs.png";
-import img1 from "../assets/us-images/image2.svg"; // Usada para a imagem maior no topo direito
-import img2 from "../assets/us-images/image2.svg"; // Usada para a imagem inferior esquerda
-import img3 from "../assets/us-images/image3.svg"; // Usada para a imagem inferior direita
+import img1 from "../assets/us-images/1.svg"; // Usada para a imagem maior no topo direito
+import img2 from "../assets/us-images/2.jpg"; // Usada para a imagem inferior esquerda
+import img3 from "../assets/us-images/3.jpg"; // Usada para a imagem inferior direita
+import img4 from "../assets/us-images/4.jpg"; // Usada para a imagem inferior direita
 
 export function Us() {
-  console.log("Us component renderizado");
   return (
     <section id="about" className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
@@ -57,16 +57,16 @@ export function Us() {
             {/* Coluna de imagens */}
             <div data-aos="fade-left" className="grid grid-cols-1 md:grid-cols-2 gap-2">
               <div className="rounded-lg overflow-hidden">
-                <img src={img1} alt="Imagem 1" className="w-full h-full object-cover" />
+                <img src={img1} alt="Imagem 1" className="w-full h-full object-cover aspect-video" />
               </div>
               <div className="rounded-lg overflow-hidden">
-                <img src={img2} alt="Imagem 2" className="w-full h-full object-cover" />
+                <img src={img2} alt="Imagem 2" className="w-full h-full object-cover aspect-video" />
               </div>
               <div className="rounded-lg overflow-hidden">
-                <img src={img3} alt="Imagem 3" className="w-full h-full object-cover" />
+                <img src={img3} alt="Imagem 3" className="w-full h-full object-cover aspect-video" />
               </div>
               <div className="rounded-lg overflow-hidden">
-                <img src={img3} alt="Imagem 4" className="w-full h-full object-cover" />
+                <img src={img4} alt="Imagem 4" className="w-full h-full object-cover aspect-video" />
               </div>
             </div>
           </div>

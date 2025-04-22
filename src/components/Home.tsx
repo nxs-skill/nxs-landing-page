@@ -1,7 +1,6 @@
 import mockup from "../assets/icons/mockups/nxs-on-device.svg"
 
 export function Home() {
-  console.log("Home component renderizado")
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
