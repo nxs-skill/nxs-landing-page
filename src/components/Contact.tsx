@@ -184,12 +184,12 @@ export function Contact() {
                 comunidade!
               </p>
               <div className="flex space-x-4">
-                <a
+                {/* <a
                   href="#"
                   className="bg-[#31D9FE]/20 p-3 rounded-full text-[#31D9FE] hover:bg-[#31D9FE]/30 transition-all duration-300 icon-hover"
                 >
                   <TiktokLogo size={24} />
-                </a>
+                </a> */}
                 <a
                   href="https://www.linkedin.com/company/equipe-nexus/"
                   target="_blank"
@@ -198,7 +198,7 @@ export function Contact() {
                   <LinkedinLogo size={24} />
                 </a>
                 <a
-                  href="https://www.instagram.com/equipe_nxs/"
+                  href="https://www.instagram.com/nexus_skill/"
                   target="_blank"
                   className="bg-[#31D9FE]/20 p-3 rounded-full text-[#31D9FE] hover:bg-[#31D9FE]/30 transition-all duration-300 icon-hover"
                 >

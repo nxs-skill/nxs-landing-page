@@ -28,18 +28,18 @@ export function About() {
       imageSrc: "/src/assets/members/m1.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/davi-almeida-carvalho-1953a8237/",
+        instagram: "https://www.instagram.com/davialmeida_profi",
       },
     },
     {
       nome: "Carlos daniel",
-      funcao: "CTO & Sócio & Co founder",
+      funcao: "CFO & Sócio & Co founder",
       imageSrc: "/src/assets/members/m2.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/carlos-vaz-512728255/",
+        instagram: "https://www.instagram.com/cdovaz/",
       },
     },
     {
@@ -48,8 +48,18 @@ export function About() {
       imageSrc: "/src/assets/members/m3.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/marcus-valente/",
+        instagram: "https://www.instagram.com/marcusf.dev/",
+      },
+    },
+    {
+      nome: "Gabriel Colares",
+      funcao: "CTO & Programador Full-stack",
+      imageSrc: "/src/assets/members/m6.png",
+      redes: {
+        email: "gabriel.colares.dev@gmail.com",
+        linkedin: "https://www.linkedin.com/in/gabriel-colares/",
+        instagram: "https://www.instagram.com/gabriwl.dev/",
       },
     },
     {
@@ -68,18 +78,8 @@ export function About() {
       imageSrc: "/src/assets/members/m5.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
-      },
-    },
-    {
-      nome: "Gabriel Soares",
-      funcao: "Programador Full-stack",
-      imageSrc: "/src/assets/members/m6.png",
-      redes: {
-        email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/geosz__/",
+        instagram: "https://www.instagram.com/geovana-silva-0393092a7/",
       },
     },
     {
@@ -88,8 +88,8 @@ export function About() {
       imageSrc: "/src/assets/members/m7.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/felipe-martins-3250462a1/",
+        instagram: "https://www.instagram.com/felipesza._/",
       },
     },
     {
@@ -108,8 +108,8 @@ export function About() {
       imageSrc: "/src/assets/members/m9.png",
       redes: {
         email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/thiago-sidrim-63b178216/",
-        instagram: "https://www.instagram.com/starhyxx/",
+        linkedin: "https://www.linkedin.com/in/pedro-bavaresco-21705a2a2/",
+        instagram: "https://www.instagram.com/pedroribeirobavaresco/",
       },
     },
   ]
