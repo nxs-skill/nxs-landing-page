@@ -20,6 +20,8 @@ export function About() {
   const [direction, setDirection] = useState<"next" | "prev">("next")
   const [isMobile, setIsMobile] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLElement | null>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   const members: Member[] = [
     {
@@ -119,11 +121,42 @@ export function About() {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     checkIfMobile()
     window.addEventListener('resize', checkIfMobile)
     return () => window.removeEventListener('resize', checkIfMobile)
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.5 } // pode ajustar o quanto precisa estar visível
+    )
+  
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current)
+    }
+  
+    return () => {
+      if (aboutRef.current) {
+        observer.unobserve(aboutRef.current)
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || isMobile) return
+  
+    const interval = setInterval(() => {
+      if (!animating) {
+        nextSlide()
+      }
+    }, 3000)
+  
+    return () => clearInterval(interval)
+  }, [animating, isVisible, isMobile]);  
 
   // responsividade aqui
   const itemsPerPage = isMobile ? 3 : 4
@@ -172,11 +205,15 @@ export function About() {
   const visibleMembers = getVisibleMembers()
 
   return (
-    <section id="about" className="py-20 min-h-screen flex items-center relative overflow-hidden">
+    <section
+      id="about"
+      ref={aboutRef}
+      className="py-20 min-h-screen flex items-center relative overflow-hidden"
+    >
       <div
         className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: "url('/src/assets/background-sections/background-about.svg')" }}
-      ></div>
+      />
 
       <div className="container mx-auto px-4 z-10 relative">
         <div data-aos="fade-down" className="text-center mb-16">
@@ -192,13 +229,12 @@ export function About() {
         <div className="relative" ref={carouselRef}>
           <div data-aos="fade-up" className="overflow-hidden">
             <div
-              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out ${
-                animating
-                  ? direction === "next"
-                    ? "opacity-0 -translate-x-10"
-                    : "opacity-0 translate-x-10"
-                  : "opacity-100 translate-x-0"
-              }`}
+              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out ${animating
+                ? direction === "next"
+                  ? "opacity-0 -translate-x-10"
+                  : "opacity-0 translate-x-10"
+                : "opacity-100 translate-x-0"
+                }`}
             >
               {visibleMembers.map((member, index) => (
                 <div
@@ -281,9 +317,8 @@ export function About() {
           {Array.from({ length: totalPages }).map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === Math.floor(currentIndex / itemsPerPage) ? "bg-[#31D9FE]" : "bg-gray-600 hover:bg-[#24B7D8]"
-              }`}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === Math.floor(currentIndex / itemsPerPage) ? "bg-[#31D9FE]" : "bg-gray-600 hover:bg-[#24B7D8]"
+                }`}
               onClick={() => goToPage(index)}
               aria-label={`Página ${index + 1}`}
             />
