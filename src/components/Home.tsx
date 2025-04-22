@@ -27,6 +27,14 @@ export function Home() {
               Solução feita para <span className="text-[#31D9FE] font-bold">você</span>. E de graça!
             </p>
           </div>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block"
+          >
+            Baixe agora
+          </a>
         </div>
 
         <div className="mt-8 md:mt-0">
