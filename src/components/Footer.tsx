@@ -9,7 +9,6 @@ import {
 } from "@phosphor-icons/react"
 
 export function Footer() {
-  console.log("Footer component renderizado")
   return (
     <footer id="contact" data-aos="fade-up" className="bg-[#030812] text-white border-t border-[#31D9FE]/20">
       <div className="container mx-auto px-4 py-12">

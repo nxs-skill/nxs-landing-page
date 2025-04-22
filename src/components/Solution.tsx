@@ -3,14 +3,9 @@ import logo from "../assets/logo-extended.png"
 import blueLine from "../assets/Clip path group.svg"
 import background from "../assets/background-sections/background-part-1-app.svg"
 import LightDarkMode from "../assets/icons/dark-lightMode.svg"
-
 import MobileScreenCarousel from "./MobileScreenCarousel"
 
-
-
-
 export function Solution() {
-  console.log("Solution component renderizado")
   return (
     <section id="solution" className="py-20 min-h-screen flex flex-col relative overflow-hidden">
       <div

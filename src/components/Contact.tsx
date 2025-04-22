@@ -20,8 +20,6 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>
 
 export function Contact() {
-  console.log("Contact component renderizado")
-
   const {
     register,
     handleSubmit,

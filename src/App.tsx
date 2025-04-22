@@ -21,7 +21,6 @@ function App() {
     });
   }, []);
 
-  console.log("App component renderizado")
   return (
     <div className="min-h-screen bg-[#030812]">
       <Header />

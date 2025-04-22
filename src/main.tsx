@@ -14,7 +14,6 @@ if (!rootElement) {
         <App />
       </StrictMode>,
     )
-    console.log("App renderizado com sucesso!")
   } catch (error) {
     console.error("Erro ao renderizar o App:", error)
   }

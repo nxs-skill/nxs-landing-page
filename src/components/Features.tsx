@@ -9,8 +9,6 @@ import background from "../assets/background-sections/background-part-2-app.svg"
 import play from "../assets/icons/play-store_svgrepo.com.svg"
 
 export function Features() {
-  console.log("AppPart2 component renderizado")
-
   const ContentsCard = [
     {
       title: "Ranking de usuários",

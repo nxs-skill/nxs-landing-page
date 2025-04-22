@@ -5,7 +5,6 @@ import { List, X } from "@phosphor-icons/react"
 import { Button } from "../ui/button"
 
 export function Header() {
-  console.log("Header component renderizado")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
