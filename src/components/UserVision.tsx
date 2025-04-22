@@ -103,8 +103,8 @@ export function UserVision() {
     }
   }, [testimonials.length])
 
-  const renderStars = (rating: number) => {
-    return Array.from({ length: 5 }).map((_, index) => (
+  const renderStars = (rating: number = 5) => {
+    return Array.from({ length: rating }).map((_, index) => (
       <svg key={index} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
       </svg>
