@@ -78,10 +78,10 @@ export function Footer() {
               <li className="flex items-start">
                 <EnvelopeSimple size={20} className="text-[#31D9FE] mr-2 mt-1" />
                 <a
-                  href="mailto:contato@nexusskill.com"
+                  href="mailto:nxsskills@gmail.com"
                   className="text-gray-400 hover:text-[#31D9FE] transition-colors"
                 >
-                  contato@nexusskill.com
+                  nxsskills@gmail.com
                 </a>
               </li>
               <li className="flex items-start">

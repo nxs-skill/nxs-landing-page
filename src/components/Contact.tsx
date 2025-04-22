@@ -157,8 +157,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">Email</h4>
-                    <a href="mailto:contato@nexusskill.com" className="text-[#31D9FE] hover:underline">
-                      contato@nexusskill.com
+                    <a href="mailto:nxsskills@gmail.com" className="text-[#31D9FE] hover:underline">
+                      nxsskills@gmail.com
                     </a>
                   </div>
                 </div>
