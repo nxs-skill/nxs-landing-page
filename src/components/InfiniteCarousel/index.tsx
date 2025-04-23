@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { motion, useMotionValue } from 'framer-motion';
 import Image from "../../assets/Courses-images/imagem.svg";
 import Image1 from "../../assets/Courses-images/imagem (1).svg";
 import Image2 from "../../assets/Courses-images/imagem (2).svg";
@@ -14,6 +14,11 @@ interface CardData {
   imageUrl: string;
   tag: string;
   users: string;
+}
+
+interface TagData {
+  id: number;
+  tag: string;
 }
 
 const InfiniteCarousel = () => {
@@ -76,8 +81,45 @@ const InfiniteCarousel = () => {
     },
   ];
 
+  const tags: TagData[] = [
+    {
+      id: 1,
+      tag: "Psicologia pessoal"
+    },
+    {
+      id: 2,
+      tag: "Comunicação"
+    },
+    {
+      id: 3,
+      tag: "Trabalho em equipe"
+    },
+    {
+      id: 4,
+      tag: "Apresentação"
+    }
+  ]
+
   const duplicatedCards = [...cards, ...cards, ...cards];
+  const duplicatedTags = [...tags, ...tags, ...tags,...tags];
   const containerRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const x = useMotionValue(0);
+
+  useEffect(() => {
+    let animationFrame: number;
+  
+    const move = () => {
+      if (!isDraggingRef.current) {
+        x.set(x.get() - 0.11); 
+      }
+      animationFrame = requestAnimationFrame(move);
+    };
+  
+    animationFrame = requestAnimationFrame(move);
+  
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
 
   return (
     <div data-aos="fade-up" className="w-full py-8 overflow-hidden">
@@ -96,14 +138,14 @@ const InfiniteCarousel = () => {
             repeat: Infinity,
           }}
         >
-          {duplicatedCards.map((card, index) => (
+          {duplicatedTags.map((tag, index) => (
             <motion.div
-              key={`${card.id}-${index}`}
+              key={`${tag.id}-${index}`}
               className="w-[350px] flex-shrink-0"
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
               <div className="border-[1px] p-6 border-gray-800 bg-[#31D9FE]/85 rounded-lg overflow-hidden shadow-sm mx-2 flex justify-center">
-                <h5 className='font-semibold text-xl'>{card.tag}</h5>
+                <h5 className='font-semibold text-xl'>{tag.tag}</h5>
               </div>
             </motion.div>
           ))}
@@ -114,12 +156,17 @@ const InfiniteCarousel = () => {
         <div className="absolute right-0 top-0 h-full w-[20px] md:w-[50px] lg:w-[250px] z-10 bg-gradient-to-l from-[#0a0a14] via-[#0a0a14]/90 to-transparent pointer-events-none"></div>
         <motion.div
           ref={containerRef}
-          className="flex gap-6 w-max"
+          className="flex gap-6 w-max cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: -2000, right: 0 }}
+          style={{ x }}
+          onDragStart={() => { isDraggingRef.current = true; }}
+          onDragEnd={() => { isDraggingRef.current = false; }}
           animate={{
-            x: ['0%', '-66.666%'],
+            x: ['0%', '-66.666%'], 
           }}
           transition={{
-            duration: 150,
+            duration: 150, 
             ease: 'linear',
             repeat: Infinity,
           }}
