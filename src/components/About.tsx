@@ -162,7 +162,6 @@ export function About() {
 
   // responsividade aqui
   const itemsPerPage = isMobile ? 3 : 4
-  const totalPages = Math.ceil(members.length / itemsPerPage)
 
   const nextSlide = () => {
     if (animating) return
@@ -180,16 +179,6 @@ export function About() {
     setDirection("prev")
     setTimeout(() => {
       setCurrentIndex((prev) => (prev - 1 + (members.length - itemsPerPage + 1)) % (members.length - itemsPerPage + 1))
-      setAnimating(false)
-    }, 300)
-  }
-
-  const goToPage = (pageIndex: number) => {
-    if (animating || !isMobile) return
-    setAnimating(true)
-    setDirection(pageIndex > Math.floor(currentIndex / itemsPerPage) ? "next" : "prev")
-    setTimeout(() => {
-      setCurrentIndex(pageIndex * itemsPerPage)
       setAnimating(false)
     }, 300)
   }
