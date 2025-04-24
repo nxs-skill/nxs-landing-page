@@ -51,7 +51,7 @@ export function Header() {
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold text-[#31D9FE]">
             <img 
-              src={"/src/assets/nexus.png"} 
+              src={"/src/assets/logo-nxs.png"} 
               alt="NXS" 
               className="w-10 h-10 md:w-12 md:h-12 object-contain" 
             />
