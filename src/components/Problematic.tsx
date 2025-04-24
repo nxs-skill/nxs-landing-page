@@ -15,7 +15,7 @@ export function Problematic() {
       className="py-12 min-h-screen flex flex-col items-center relative overflow-hidden"
     >
       <div
-        className="absolute inset-x-0 top-0 z-0 bg-cover bg-center opacity-60"
+        className="absolute inset-x-0 top-0 z-0 bg-cover bg-center opacity-10"
         style={{
           backgroundImage: `url(${background1})`,
           backgroundColor: "#030812",
@@ -25,7 +25,7 @@ export function Problematic() {
       ></div>
 
       <div
-        className="absolute inset-x-0 bottom-0 z-0 bg-cover bg-center opacity-50"
+        className="absolute inset-x-0 bottom-0 z-0 bg-cover bg-center opacity-10"
         style={{
           backgroundImage: `url(${background2})`,
           backgroundColor: "#030812",

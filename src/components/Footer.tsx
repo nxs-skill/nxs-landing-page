@@ -54,8 +54,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#features" className="text-gray-400 hover:text-[#31D9FE] transition-colors">
-                  Funcionalidades
+                <a href="#app" className="text-gray-400 hover:text-[#31D9FE] transition-colors">
+                  App
                 </a>
               </li>
               <li>
