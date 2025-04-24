@@ -22,6 +22,8 @@ export function About() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLElement | null>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
 
   const members: Member[] = [
     {
@@ -123,40 +125,40 @@ export function About() {
     }
 
     checkIfMobile()
-    window.addEventListener('resize', checkIfMobile)
-    return () => window.removeEventListener('resize', checkIfMobile)
-  }, []);
+    window.addEventListener("resize", checkIfMobile)
+    return () => window.removeEventListener("resize", checkIfMobile)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting)
       },
-      { threshold: 0.5 } // pode ajustar o quanto precisa estar visível
+      { threshold: 0.5 }, // pode ajustar o quanto precisa estar visível
     )
-  
+
     if (aboutRef.current) {
       observer.observe(aboutRef.current)
     }
-  
+
     return () => {
       if (aboutRef.current) {
         observer.unobserve(aboutRef.current)
       }
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
     if (!isVisible || isMobile) return
-  
+
     const interval = setInterval(() => {
       if (!animating) {
         nextSlide()
       }
     }, 3000)
-  
+
     return () => clearInterval(interval)
-  }, [animating, isVisible, isMobile]);  
+  }, [animating, isVisible, isMobile])
 
   // responsividade aqui
   const itemsPerPage = isMobile ? 3 : 4
@@ -167,7 +169,7 @@ export function About() {
     setAnimating(true)
     setDirection("next")
     setTimeout(() => {
-      setCurrentIndex(prev => (prev + 1) % (members.length - itemsPerPage + 1))
+      setCurrentIndex((prev) => (prev + 1) % (members.length - itemsPerPage + 1))
       setAnimating(false)
     }, 300)
   }
@@ -177,7 +179,7 @@ export function About() {
     setAnimating(true)
     setDirection("prev")
     setTimeout(() => {
-      setCurrentIndex(prev => (prev - 1 + (members.length - itemsPerPage + 1)) % (members.length - itemsPerPage + 1))
+      setCurrentIndex((prev) => (prev - 1 + (members.length - itemsPerPage + 1)) % (members.length - itemsPerPage + 1))
       setAnimating(false)
     }, 300)
   }
@@ -192,9 +194,12 @@ export function About() {
     }, 300)
   }
 
-  // carrosel infinito
   const getVisibleMembers = () => {
-    let endIndex = currentIndex + itemsPerPage
+    if (isMobile) {
+      return members
+    }
+
+    const endIndex = currentIndex + itemsPerPage
     if (endIndex > members.length) {
       const remaining = endIndex - members.length
       return [...members.slice(currentIndex), ...members.slice(0, remaining)]
@@ -204,12 +209,28 @@ export function About() {
 
   const visibleMembers = getVisibleMembers()
 
+  const handleTouchStart = (e: any) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: any) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      // swipe left
+      nextSlide()
+    }
+
+    if (touchStart - touchEnd < -50) {
+      // swipe right
+      prevSlide()
+    }
+  }
+
   return (
-    <section
-      id="about"
-      ref={aboutRef}
-      className="py-20 min-h-screen flex items-center relative overflow-hidden"
-    >
+    <section id="about" ref={aboutRef} className="py-20 min-h-screen flex items-center relative overflow-hidden">
       <div
         className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: "url('/src/assets/background-sections/background-about.svg')" }}
@@ -226,21 +247,29 @@ export function About() {
           </p>
         </div>
 
-        <div className="relative" ref={carouselRef}>
+        <div
+          className="relative"
+          ref={carouselRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div data-aos="fade-up" className="overflow-hidden">
             <div
-              className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 transition-all duration-500 ease-in-out ${animating
-                ? direction === "next"
-                  ? "opacity-0 -translate-x-10"
-                  : "opacity-0 translate-x-10"
-                : "opacity-100 translate-x-0"
-                }`}
+              className={`transition-all duration-500 ease-in-out ${
+                animating
+                  ? direction === "next"
+                    ? "opacity-0 -translate-x-10"
+                    : "opacity-0 translate-x-10"
+                  : "opacity-100 translate-x-0"
+              } ${isMobile ? "flex overflow-x-auto snap-x snap-mandatory hide-scrollbar" : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"}`}
             >
               {visibleMembers.map((member, index) => (
                 <div
                   key={`${member.nome}-${currentIndex}-${index}`}
-                  className="member-card rounded-lg overflow-hidden shadow-lg border border-[#31D9FE]/20 
-                  transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[#31D9FE]/20 hover:shadow-lg"
+                  className={`member-card rounded-lg overflow-hidden shadow-lg border border-[#31D9FE]/20 
+                  transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[#31D9FE]/20 hover:shadow-lg
+                  ${isMobile ? "min-w-[280px] snap-center mr-4 flex-shrink-0" : ""}`}
                 >
                   <div className="relative aspect-[4/3]">
                     <img
@@ -312,18 +341,7 @@ export function About() {
           </button>
         </div>
 
-        {/* renderiza os dots apenas no mobile */}
-        <div className={`flex justify-center mt-8 gap-2 ${!isMobile ? 'hidden' : ''}`}>
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === Math.floor(currentIndex / itemsPerPage) ? "bg-[#31D9FE]" : "bg-gray-600 hover:bg-[#24B7D8]"
-                }`}
-              onClick={() => goToPage(index)}
-              aria-label={`Página ${index + 1}`}
-            />
-          ))}
-        </div>
+        {/* Pagination dots removed as requested */}
 
         <div className="flex justify-center mt-10">
           <div data-aos="fade-up" className="glassmorphism px-4 py-2 rounded-full">

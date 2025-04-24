@@ -50,7 +50,11 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold text-[#31D9FE]">
-            NXS
+            <img 
+              src={"/src/assets/nexus.png"} 
+              alt="NXS" 
+              className="w-10 h-10 md:w-12 md:h-12 object-contain" 
+            />
           </a>
         </div>
 
