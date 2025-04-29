@@ -90,5 +90,3 @@ export function Features() {
     </section>
   )
 }
-
-//bg-[#24B7D8] px-32 py-3 rounded-lg font-bold text-xl inline-flex items-center justify-cente transition-colors hover:bg-[#2295af]
