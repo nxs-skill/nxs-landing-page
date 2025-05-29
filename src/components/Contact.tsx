@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
-import { EnvelopeSimple, Phone, TiktokLogo, LinkedinLogo, InstagramLogo } from "@phosphor-icons/react"
+import { EnvelopeSimple, Phone, LinkedinLogo, InstagramLogo } from "@phosphor-icons/react"
 
 const formSchema = z.object({
   name: z.string().min(1, "Nome é obrigatório"),
@@ -37,10 +37,21 @@ export function Contact() {
   })
 
   const onSubmit = (data: FormData) => {
-    console.log("Form submitted:", data)
-    alert("Formulário enviado com sucesso!")
-    reset()
-  }
+    const { name, email, phone, subject, message } = data;
+  
+    const body = `
+Nome: ${name}
+Email: ${email}
+Telefone: ${phone}
+
+Mensagem: ${message}
+`.trim();
+  
+    const mailto = `mailto:nxsskills@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+    window.location.href = mailto;
+  };
+  
 
   return (
     <section id="contact" className="py-20 min-h-screen flex items-center relative overflow-hidden">
