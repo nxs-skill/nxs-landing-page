@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import background from "../assets/background-sections/background-part-2-app.svg"
-import avatarImage from "../assets/diverse-avatars.png"
+import user from "../assets/user-comment.jpg"
 
 export function UserVision() {
   const [scrollPosition, setScrollPosition] = useState(0)
@@ -11,60 +11,60 @@ export function UserVision() {
 
   const testimonials = [
     {
-      name: "Gabriel Figueredo",
+      name: "Valmira Tenorio",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "Ótimo APP com design e conteúdo ótimos. está me ajudando muito com minhas habilidades interpessoal. minhas SOFTSKILL. Parabéns aos desenvolvedores.",
+      date: "19 de maio, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Thalles H",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "Só qualidade: Boa interação, sistema de avaliações, de experiência e ranking, um ótimo aplicativo.",
+      date: "1 de maio, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Balax",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "Sensacional! um aplicativo com design muito bom e muito intuitivo",
+      date: "24 de abril, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Eliézer De Jejus",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "Top demais! Fizeram um ótimo aplicativo com o objetivo de ajudar seus usuários. Parabéns!",
+      date: "24 de abril, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Ihan Nunes",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "aplicativo sensacional, design interativo e dinâmico, fácil de usar",
+      date: "23 de abril, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Will Andrew Nogueira da Silva",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "parabéns a equipe, app super útil no quesito de atividades interpessoais",
+      date: "24 de abril, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Lohanna Soares",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "aplicativo muito bom, atendeu tudo que eu necessito recomendo muito",
+      date: "27 de abril, 2025",
     },
     {
-      name: "Gabriel Figueredo",
+      name: "Isabelle Nogueira da Silva",
       rating: 5,
       content:
-        "Lorem ipsum is simply dummy text of the printing and typesetting industry. typesetting industry, and typesetting industry. typesetting industry,setting industry. typesetting industry, and typesetting industry.",
-      date: "12 abril, 2024",
+        "muito bom esse app, gostei bastante do design e também dá dinâmica do aplicativo, consigo me organizar nas minnas ideias. estudos",
+      date: "26 de abril, 2025",
     },
   ]
 
@@ -157,7 +157,7 @@ export function UserVision() {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src={avatarImage || "/placeholder.svg"}
+                  src={user || "/placeholder.svg"}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
                 />
@@ -196,7 +196,7 @@ export function UserVision() {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src={avatarImage || "/placeholder.svg"}
+                  src={user || "/placeholder.svg"}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
                 />
