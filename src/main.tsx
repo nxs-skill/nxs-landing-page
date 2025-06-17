@@ -1,5 +1,6 @@
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
+import { Analytics } from "@vercel/analytics/next"
 import "./index.css"
 import App from "./App.tsx"
 
@@ -12,6 +13,7 @@ if (!rootElement) {
     createRoot(rootElement).render(
       <StrictMode>
         <App />
+        <Analytics />
       </StrictMode>,
     )
   } catch (error) {
