@@ -1,8 +1,27 @@
-import mockup from "../assets/icons/mockups/nxs-on-device.svg"
-import play from "../assets/icons/play-store_svgrepo.com.svg"
-import website from "../assets/icons/web-site.svg"
+import { Instagram, Linkedin, Mail } from 'lucide-react';
+import mockup from "../assets/icons/mockups/nxs-on-device.svg";
+import play from "../assets/icons/play-store_svgrepo.com.svg";
+import website from "../assets/icons/web-site.svg";
 
 export function Home() {
+  const redes_sociais = [
+    {
+      nome: "Instagram",
+      link: "https://www.instagram.com/nexus_skill",
+      icon: <Instagram className="h-5 w-5 text-white" />,
+    },
+    {
+      nome: "Linkedin",
+      link: "https://www.linkedin.com/company/equipe-nexus",
+      icon: <Linkedin className="h-5 w-5 text-white" />,
+    },
+    {
+      nome: "Email",
+      link: "nxsskill@gmail.com",
+      icon: <Mail className="h-5 w-5 text-white" />,
+    },
+  ];
+
   return (
     <section id="home" className="min-h-screen flex items-center relative overflow-hidden pt-16">
       <div
@@ -29,14 +48,33 @@ export function Home() {
               Solução feita para <span className="text-[#31D9FE] font-bold">você</span>. E de graça!
             </p>
           </div>
-          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" className="px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" className="max-w-[314px] sm:max-w-max px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
             <img src={play} alt={play} />
-            <span className="ml-2">Baixe agora!</span>
+            <span className="ml-2">Baixe agora no Android!</span>
           </a>
-          <a href="https://nexus-skill.vercel.app/" target="_blank" className="px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+          <a href="https://nexus-skill.vercel.app/" target="_blank" className="max-w-[314px] sm:max-w-max px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
             <img src={website} alt={website} />
-            <span className="ml-2">Acesse o Nexus Skill via web!</span>
+            <span className="ml-2 text-lg sm:text-xl">Acesse o Nexus Skill via web!</span>
           </a>
+          <div className='flex gap-3'>
+            {redes_sociais.map(({ icon, link, nome }) => {
+              if (!link) return null;
+
+              const href = nome === "Email" ? `mailto:${link}` : link;
+
+              return (
+                <a
+                  key={nome}
+                  href={href}
+                  target="_blank"
+                >
+                  <div className="w-9 h-9 flex justify-center items-center border-white border rounded-full transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8]">
+                    {icon}
+                  </div>
+                </a>
+              )
+            })}
+          </div>
         </div>
 
         <div className="mt-8 md:mt-0">
