@@ -38,7 +38,7 @@ export function Contact() {
 
   const onSubmit = (data: FormData) => {
     const { name, email, phone, subject, message } = data;
-  
+
     const body = `
 Nome: ${name}
 Email: ${email}
@@ -46,12 +46,12 @@ Telefone: ${phone}
 
 Mensagem: ${message}
 `.trim();
-  
+
     const mailto = `mailto:nxsskills@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  
+
     window.location.href = mailto;
   };
-  
+
 
   return (
     <section id="contact" className="py-20 min-h-screen flex items-center relative overflow-hidden">
@@ -207,7 +207,7 @@ Mensagem: ${message}
                   <LinkedinLogo size={24} />
                 </a>
                 <a
-                  href="https://www.instagram.com/nexus_skill/"
+                  href="https://www.instagram.com/nxs.skill/"
                   target="_blank"
                   className="bg-[#31D9FE]/20 p-3 rounded-full text-[#31D9FE] hover:bg-[#31D9FE]/30 transition-all duration-300 icon-hover"
                 >

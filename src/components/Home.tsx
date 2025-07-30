@@ -7,7 +7,7 @@ export function Home() {
   const redes_sociais = [
     {
       nome: "Instagram",
-      link: "https://www.instagram.com/nexus_skill",
+      link: "https://www.instagram.com/nxs.skill",
       icon: <Instagram className="h-5 w-5 text-white" />,
     },
     {
