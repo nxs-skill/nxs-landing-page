@@ -11,11 +11,28 @@ export function UserVision() {
 
   const testimonials = [
     {
-      name: "Valmira Tenorio",
+      name: "Will Andrew Nogueira da Silva",
       rating: 5,
       content:
-        "Ótimo APP com design e conteúdo ótimos. está me ajudando muito com minhas habilidades interpessoal. minhas SOFTSKILL. Parabéns aos desenvolvedores.",
-      date: "19 de maio, 2025",
+        "Parabéns a equipe, app super útil no quesito de atividades interpessoais",
+      date: "24 de abril, 2025",
+      url: "/src/assets/testimonials/1.jpg"
+    },
+    {
+      name: "Isabelle Nogueira da Silva",
+      rating: 5,
+      content:
+        "Muito bom esse app, gostei bastante do design e também dá dinâmica do aplicativo, consigo me organizar nas minnas ideias. estudos",
+      date: "26 de abril, 2025",
+      url: "/src/assets/testimonials/2.jpg"
+    },
+    {
+      name: "Lohanna Soares",
+      rating: 5,
+      content:
+        "Aplicativo muito bom, atendeu tudo que eu necessito recomendo muito",
+      date: "27 de abril, 2025",
+      url: "/src/assets/testimonials/3.jpg"
     },
     {
       name: "Thalles H",
@@ -23,48 +40,39 @@ export function UserVision() {
       content:
         "Só qualidade: Boa interação, sistema de avaliações, de experiência e ranking, um ótimo aplicativo.",
       date: "1 de maio, 2025",
+      url: "/src/assets/testimonials/4.jpg"
     },
     {
-      name: "Balax",
+      name: "Bibis Josepoly",
       rating: 5,
       content:
-        "Sensacional! um aplicativo com design muito bom e muito intuitivo",
-      date: "24 de abril, 2025",
+        "Incrivelmente incrível",
+      date: "8 de maio, 2025",
+      url: "/src/assets/testimonials/5.jpg"
     },
     {
-      name: "Eliézer De Jejus",
+      name: "Valmira Tenorio",
       rating: 5,
       content:
-        "Top demais! Fizeram um ótimo aplicativo com o objetivo de ajudar seus usuários. Parabéns!",
-      date: "24 de abril, 2025",
+        "Ótimo APP com design e conteúdo ótimos. está me ajudando muito com minhas habilidades interpessoal. minhas SOFTSKILL. Parabéns aos desenvolvedores.",
+      date: "19 de maio, 2025",
+      url: "/src/assets/testimonials/6.png"
     },
     {
-      name: "Ihan Nunes",
+      name: "Ionara Carvalho",
       rating: 5,
       content:
-        "aplicativo sensacional, design interativo e dinâmico, fácil de usar",
+        "O melhor APP de desenvolvimento. Amei, muito bom!o",
       date: "23 de abril, 2025",
+      url: null
     },
     {
-      name: "Will Andrew Nogueira da Silva",
+      name: "Gabriely Martins",
       rating: 5,
       content:
-        "parabéns a equipe, app super útil no quesito de atividades interpessoais",
-      date: "24 de abril, 2025",
-    },
-    {
-      name: "Lohanna Soares",
-      rating: 5,
-      content:
-        "aplicativo muito bom, atendeu tudo que eu necessito recomendo muito",
-      date: "27 de abril, 2025",
-    },
-    {
-      name: "Isabelle Nogueira da Silva",
-      rating: 5,
-      content:
-        "muito bom esse app, gostei bastante do design e também dá dinâmica do aplicativo, consigo me organizar nas minnas ideias. estudos",
-      date: "26 de abril, 2025",
+        "Aplicativo muito prestativo!!!",
+      date: "22 de abril, 2025",
+      url: null
     },
   ]
 
@@ -128,7 +136,7 @@ export function UserVision() {
             O app na visão dos usuários
             <span className="text-[#35D9FD]">.</span>
           </span>
-          
+
         </h2>
         <div className="w-full flex text-center justify-center">
           <p className="max-w-3xl text-[#d1d5db] font-['Inter',sans-serif]">
@@ -157,7 +165,7 @@ export function UserVision() {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src={user || "/placeholder.svg"}
+                  src={testimonial.url || "/placeholder.svg"}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
                 />
@@ -196,7 +204,7 @@ export function UserVision() {
             >
               <div className="flex items-center mb-4">
                 <img
-                  src={user || "/placeholder.svg"}
+                  src={testimonial.url || "/placeholder.svg"}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-3 border-2 border-[#35D9FD]/30"
                 />
