@@ -1,18 +1,16 @@
 import {
   EnvelopeSimple,
-  Phone,
-  MapPin,
-  FacebookLogo,
+  Phone, FacebookLogo,
   InstagramLogo,
   LinkedinLogo,
-  TiktokLogo,
+  TiktokLogo
 } from "@phosphor-icons/react"
 
 export function Footer() {
   return (
     <footer id="contact" data-aos="fade-up" className="bg-[#030812] text-white border-t border-[#31D9FE]/20">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4 text-[#31D9FE]">Nexus-Skill</h3>
             <p className="text-gray-400 mb-4">
@@ -77,10 +75,10 @@ export function Footer() {
               <li className="flex items-start">
                 <EnvelopeSimple size={20} className="text-[#31D9FE] mr-2 mt-1" />
                 <a
-                  href="mailto:nxsskills@gmail.com"
+                  href="mailto:contato@nxshub.com.br"
                   className="text-gray-400 hover:text-[#31D9FE] transition-colors"
                 >
-                  nxsskills@gmail.com
+                  contato@nxshub.com.br
                 </a>
               </li>
               <li className="flex items-start">
@@ -89,26 +87,7 @@ export function Footer() {
                   (92) 98620-6811
                 </a>
               </li>
-              <li className="flex items-start">
-                <MapPin size={20} className="text-[#31D9FE] mr-2 mt-1" />
-                <span className="text-gray-400">Av. Exemplo, 1000 - Bairro, Cidade - Estado</span>
-              </li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-white">Newsletter</h3>
-            <p className="text-gray-400 mb-4">Inscreva-se para receber novidades e atualizações.</p>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Seu email"
-                className="px-4 py-2 w-full rounded-l-md focus:outline-none bg-[#030812]/60 border border-[#31D9FE]/30 text-white"
-              />
-              <button type="submit" className="bg-[#31D9FE] hover:bg-[#24B7D8] px-4 py-2 rounded-r-md">
-                <EnvelopeSimple size={20} />
-              </button>
-            </form>
           </div>
         </div>
 

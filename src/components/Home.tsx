@@ -17,7 +17,7 @@ export function Home() {
     },
     {
       nome: "Email",
-      link: "nxsskill@gmail.com",
+      link: "contato@nxshub.com.br",
       icon: <Mail className="h-5 w-5 text-white" />,
     },
   ];

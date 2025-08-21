@@ -23,7 +23,6 @@ export function Contact() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -47,7 +46,7 @@ Telefone: ${phone}
 Mensagem: ${message}
 `.trim();
 
-    const mailto = `mailto:nxsskills@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto = `mailto:contato@nxshub.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailto;
   };
@@ -166,8 +165,8 @@ Mensagem: ${message}
                   </div>
                   <div>
                     <h4 className="font-semibold text-white mb-1">Email</h4>
-                    <a href="mailto:nxsskills@gmail.com" className="text-[#31D9FE] hover:underline">
-                      nxsskills@gmail.com
+                    <a href="mailto:contato@nxshub.com.br" className="text-[#31D9FE] hover:underline">
+                      contato@nxshub.com.br
                     </a>
                   </div>
                 </div>

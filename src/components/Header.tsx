@@ -50,10 +50,10 @@ export function Header() {
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
           <a href="#" className="text-2xl font-bold text-[#31D9FE]">
-            <img 
-              src={"/src/assets/logo-nxs.png"} 
-              alt="NXS" 
-              className="w-10 h-10 md:w-12 md:h-12 object-contain" 
+            <img
+              src={"/src/assets/logo-nxs.png"}
+              alt="NXS"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
           </a>
         </div>
@@ -71,9 +71,14 @@ export function Header() {
           ))}
         </nav>
 
-        <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" className="hidden md:block">
-          <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Baixe agora</Button>
-        </a>
+        <div className="flex items-center gap-3">
+          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" className="hidden md:block">
+            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Baixe agora</Button>
+          </a>
+          <a href="https://skill.nxshub.com.br" target="_blank" className="hidden md:block">
+            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium">Acessar Web</Button>
+          </a>
+        </div>
 
         <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} /> : <List size={24} />}
@@ -97,6 +102,9 @@ export function Header() {
             ))}
             <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
               <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full">Baixe agora</Button>
+            </a>
+            <a href="https://skill.nxshub.com.br" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full">Acessar Web</Button>
             </a>
           </div>
         </div>

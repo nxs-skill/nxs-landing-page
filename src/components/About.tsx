@@ -38,7 +38,7 @@ export function About() {
     },
     {
       nome: "Carlos daniel",
-      funcao: "CFO & Sócio & Co founder",
+      funcao: "CFO & Co founder",
       imageSrc: "/src/assets/members/m2.png",
       redes: {
         email: "davialmeida@gmail.com",
@@ -47,23 +47,13 @@ export function About() {
       },
     },
     {
-      nome: "Marcos felipe",
-      funcao: "Programador Full-stack & Co-founder",
-      imageSrc: "/src/assets/members/m3.png",
-      redes: {
-        email: "davialmeida@gmail.com",
-        linkedin: "https://www.linkedin.com/in/marcus-valente/",
-        instagram: "https://www.instagram.com/marcusf.dev/",
-      },
-    },
-    {
       nome: "Gabriel Colares",
-      funcao: "CTO & Programador Full-stack",
+      funcao: "CTO & Software Developer",
       imageSrc: "/src/assets/members/m6.png",
       redes: {
         email: "gabriel.colares.dev@gmail.com",
         linkedin: "https://www.linkedin.com/in/gabriel-colares/",
-        instagram: "https://www.instagram.com/gabriwl.dev/",
+        instagram: "https://www.instagram.com/gcolares.me/",
       },
     },
     {
@@ -245,13 +235,12 @@ export function About() {
         >
           <div data-aos="fade-up" className="overflow-hidden">
             <div
-              className={`transition-all duration-500 ease-in-out ${
-                animating
-                  ? direction === "next"
-                    ? "opacity-0 -translate-x-10"
-                    : "opacity-0 translate-x-10"
-                  : "opacity-100 translate-x-0"
-              } ${isMobile ? "flex overflow-x-auto snap-x snap-mandatory hide-scrollbar" : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"}`}
+              className={`transition-all duration-500 ease-in-out ${animating
+                ? direction === "next"
+                  ? "opacity-0 -translate-x-10"
+                  : "opacity-0 translate-x-10"
+                : "opacity-100 translate-x-0"
+                } ${isMobile ? "flex overflow-x-auto snap-x snap-mandatory hide-scrollbar" : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"}`}
             >
               {visibleMembers.map((member, index) => (
                 <div
