@@ -11,6 +11,7 @@ import AOS from 'aos';
 import { useEffect } from "react";
 import CoursesAndModules from "./components/CoursesAndModules"
 import { Us } from "./components/Us"
+import  Awards  from "./components/Awards"
 import { UserVision } from "./components/UserVision"
 // import { UserVision } from "./components/UserVision"
 
@@ -33,6 +34,7 @@ function App() {
         <CoursesAndModules />
         <UserVision />
         <Us />
+        <Awards />
         <About />
         <Contact />
       </main>
