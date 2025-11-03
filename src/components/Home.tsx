@@ -52,7 +52,7 @@ export function Home() {
             <img src={play} alt={play} />
             <span className="ml-2">Baixe agora no Android!</span>
           </a>
-          <a href="https://nexus-skill.vercel.app/" target="_blank" className="max-w-[314px] sm:max-w-max px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+          <a href="https://skill.nxshub.com.br" target="_blank" className="max-w-[314px] sm:max-w-max px-20 sm:px-28 md:px-8 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
             <img src={website} alt={website} />
             <span className="ml-2 text-lg sm:text-xl">Acesse o Nexus Skill via web!</span>
           </a>
