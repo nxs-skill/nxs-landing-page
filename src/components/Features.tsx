@@ -1,3 +1,4 @@
+import { Download } from "lucide-react"
 import rocketIcon from "../assets/icons/rocketIcon.svg"
 import Trophy from "../assets/icons/Trophy.svg"
 import abstract from "../assets/icons/abstract.svg"
@@ -6,7 +7,6 @@ import chat from "../assets/icons/chat.svg"
 import star from "../assets/icons/star.svg"
 import controll from "../assets/icons/controll.svg"
 import background from "../assets/background-sections/background-part-2-app.svg"
-import play from "../assets/icons/play-store_svgrepo.com.svg"
 
 export function Features() {
   const ContentsCard = [
@@ -81,9 +81,9 @@ export function Features() {
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" data-aos="fade-up" className="mx-8 px-24 sm:px-32 md:px-28 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
-            <img src={play} alt={play} />
-            <span className="ml-2">Baixe agora!</span>
+          <a href="https://github.com/nxs-skill/nxs-landing-page/releases/download/Android/nxs-skill.apk" aria-label="Baixar o aplicativo NXS Skill para Android" data-aos="fade-up" className="mx-8 px-24 sm:px-32 md:px-28 py-3 rounded-lg font-bold text-xl inline-flex whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+            <Download aria-hidden="true" className="w-6 h-6" />
+            <span className="ml-2">Baixar app para Android</span>
           </a>
         </div>
       </div>

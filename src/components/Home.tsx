@@ -1,6 +1,5 @@
-import { Instagram, Linkedin, Mail } from 'lucide-react';
+import { Download, Instagram, Linkedin, Mail } from 'lucide-react';
 import mockup from "../assets/icons/mockups/nxs-on-device.svg";
-import play from "../assets/icons/play-store_svgrepo.com.svg";
 import website from "../assets/icons/web-site.svg";
 import bgHome from "../assets/background-sections/background-home.svg";
 import logoExtended from "../assets/logo-extended.png";
@@ -52,9 +51,9 @@ export function Home() {
               Solução feita para <span className="text-[#31D9FE] font-bold">você</span>. E de graça!
             </p>
           </div>
-          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Baixar no Google Play" className="w-full sm:w-auto px-4 sm:px-6 md:px-8 py-3 rounded-lg font-bold text-base sm:text-lg md:text-xl inline-flex sm:whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
-            <img src={play} alt="Google Play" className="w-6 h-6" />
-            <span className="ml-2">Baixe agora no Android!</span>
+          <a href="https://github.com/nxs-skill/nxs-landing-page/releases/download/Android/nxs-skill.apk" aria-label="Baixar o aplicativo NXS Skill para Android" className="w-full sm:w-auto px-4 sm:px-6 md:px-8 py-3 rounded-lg font-bold text-base sm:text-lg md:text-xl inline-flex sm:whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
+            <Download aria-hidden="true" className="w-6 h-6" />
+            <span className="ml-2">Baixar app para Android</span>
           </a>
           <a href="https://skill.nxshub.com.br" target="_blank" rel="noopener noreferrer" aria-label="Acessar Nexus Skill via web" className="w-full sm:w-auto px-4 sm:px-6 md:px-8 py-3 rounded-lg font-bold text-base sm:text-lg md:text-xl inline-flex sm:whitespace-nowrap items-center justify-center transition-all duration-300 text-white shadow-[0_0_10px_#24B7D8] hover:shadow-[0_0_15px_#24B7D8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#24B7D8] bg-[#24B7D8] bg-gradient-to-b from-[#24B7D8] to-[#24B7D8] hover:from-[#24B7D8]">
             <img src={website} alt="Acessar via web" className="w-6 h-6" />

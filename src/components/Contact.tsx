@@ -221,12 +221,11 @@ Mensagem: ${message}
                 Tudo isso na palma da sua mão. Baixe agora e comece sua jornada de evolução nas soft skills.
               </p>
               <a
-                href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="https://github.com/nxs-skill/nxs-landing-page/releases/download/Android/nxs-skill.apk"
+                aria-label="Baixar o aplicativo NXS Skill para Android"
                 className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block"
               >
-                Baixe agora
+                Baixar app para Android
               </a>
               <div className="mt-4 text-xs text-gray-400">
                 <a href="#" className="hover:text-[#31D9FE]">
