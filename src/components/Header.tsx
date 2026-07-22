@@ -71,8 +71,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="hidden md:block">
-            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium transition-colors">Baixe agora</Button>
+          <a href="https://github.com/nxs-skill/nxs-landing-page/releases/download/Android/nxs-skill.apk" aria-label="Baixar o aplicativo NXS Skill para Android" className="hidden md:block">
+            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium transition-colors">Baixar app</Button>
           </a>
           <a href="https://skill.nxshub.com.br" target="_blank" rel="noopener noreferrer" className="hidden md:block">
             <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium transition-colors">Acessar Web</Button>
@@ -106,8 +106,8 @@ export function Header() {
               {link.text}
             </a>
           ))}
-          <a href="https://play.google.com/store/apps/details?id=com.nxs.nexus_skill&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full transition-colors">Baixe agora</Button>
+          <a href="https://github.com/nxs-skill/nxs-landing-page/releases/download/Android/nxs-skill.apk" aria-label="Baixar o aplicativo NXS Skill para Android">
+            <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full transition-colors">Baixar app para Android</Button>
           </a>
           <a href="https://skill.nxshub.com.br" target="_blank" rel="noopener noreferrer">
             <Button className="bg-[#31D9FE] hover:bg-[#24B7D8] text-[#030812] font-medium w-full transition-colors">Acessar Web</Button>
